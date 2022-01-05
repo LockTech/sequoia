@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "declaration": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "typeRoots": ["./node_modules/@types"],
+    "strict": true
+  },
+  "include": ["./src", "./types/listr2.d.ts"]
+}

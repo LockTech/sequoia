@@ -1,11 +1,10 @@
 <div align="center">
 
   <h1>
-    <span style="font-size:2rem;font-weight:bold;letter-spacing:0.05rem;margin-right:0.5rem;">Sequoia</span>
-    <span style="font-size:1.7rem;">🌲</span>
+    <span style="font-size:2rem;font-weight:bold;letter-spacing:0.05rem;">Sequoia</span>
   </h1>
 
-> Generate [NPM packages](https://www.npmjs.com/), tailor-made for [RedwoodJS applications](https://redwoodjs.com/).
+> Generate [NPM packages](https://www.npmjs.com/), tailor-made for [RedwoodJS applications](https://redwoodjs.com/) 🌲
 
   <div style="display:flex;flex-direction:column;align-items:center;padding-top:0.4rem;width:fit-content;">
     <p>

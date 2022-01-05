@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { resolve } from "path";
 
 import {
   printGenerator,
@@ -13,11 +14,12 @@ import { generate } from "./tasks/gen.js";
 import type { GeneratorConfig } from "./tasks/gen.js";
 
 import { colors } from "./util/colors.js";
+import { __root, readJSONSync } from "./util/fs.js";
 
 const main = async () => {
   const { dry, force, path, skipPrompts, ...args } = await getArgs({
     scriptName: "create-sequoia-pkg",
-    version: "1.0.0",
+    version: readJSONSync(resolve(__root, "package.json")).version,
   });
 
   printTitle();

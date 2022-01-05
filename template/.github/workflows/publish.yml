@@ -46,7 +46,7 @@ jobs:
           name: v${{ steps.publish.outputs.version }}
           tag_name: v${{ steps.publish.outputs.version }}
           draft: false
-          prerelease: true
+          prerelease: false
           generate_release_notes: true
           # See generated README for details
           # body_path: ./path/to/file

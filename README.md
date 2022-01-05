@@ -32,6 +32,8 @@
 
 </div>
 
+[![Publish and Release](https://github.com/LockTech/sequoia/actions/workflows/publish.yml/badge.svg)](https://github.com/LockTech/sequoia/actions/workflows/publish.yml)
+
 ## Abstract
 
 Sequoia is a [`yarn create` script](https://classic.yarnpkg.com/en/docs/cli/create/) for generating NPM packages which are designed to work well with RedwoodJS applications.

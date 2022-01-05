@@ -70,6 +70,7 @@ on:
       - .github/workflows/storybook.yml
       - .storybook/**
       - src/**
+      - stories/**
       - package.json
       - yarn.lock
       - .gitignore

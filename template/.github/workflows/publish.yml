@@ -3,8 +3,8 @@ name: Publish and Release
 on:
   push:
     paths:
-      - package.json
       - .github/workflows/publish.yml
+      - package.json
     branches:
       - main
 

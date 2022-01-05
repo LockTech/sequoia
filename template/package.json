@@ -1,0 +1,21 @@
+{
+  "name": "SEQUOIA_LIB_NAME",
+  "version": "1.0.0",
+  "license": "MIT",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "require": "./dist/SEQUOIA_LIB_NAME.js",
+    "default": "./dist/SEQUOIA_LIB_NAME.modern.js"
+  },
+  "scripts": {
+    "build": "microbundle -f modern,cjs -i ./src/index.ts -o ./dist",
+    "watch": "yarn build -w"
+  },
+  "eslintConfig": {
+    "extends": "@redwoodjs/eslint-config/shared.js",
+    "root": true
+  },
+  "files": [
+    "./dist"
+  ]
+}

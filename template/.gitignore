@@ -1,0 +1,6 @@
+.redwood
+
+.env
+
+dist/
+node_modules/

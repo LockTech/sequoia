@@ -1,0 +1,35 @@
+# Pending further implementation
+# https://github.com/LockTech/sequoia/issues/2
+# https://github.com/LockTech/sequoia/issues/3
+
+name: PR Quality Assurance
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - package.json
+    branches:
+      - main
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node v14 📦
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Dependencies 📥
+        run: yarn install
+
+      - name: Build 🏗️
+        run: yarn build

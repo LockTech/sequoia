@@ -1,0 +1,13 @@
+{
+  "editor.tabSize": 2,
+  "files.trimTrailingWhitespace": true,
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#135cb0",
+    "statusBarItem.hoverBackground": "#094181",
+    "statusBar.foreground": "#E7E7E7"
+  }
+}

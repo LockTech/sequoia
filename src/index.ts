@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { printGenerator, printOutro, printPrompt, printTitle } from "./printer";
 
 import { getArgs } from "./tasks/args";

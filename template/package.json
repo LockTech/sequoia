@@ -16,6 +16,6 @@
     "root": true
   },
   "files": [
-    "./dist"
+    "dist"
   ]
 }

@@ -1,8 +1,7 @@
 <div align="center">
 
   <h1>
-    <span style="font-size:1.3rem;">🌱</span>
-    <span style="font-size:2rem;font-weight:bold;letter-spacing:0.05rem;margin:0 0.5rem;">Sequoia</span>
+    <span style="font-size:2rem;font-weight:bold;letter-spacing:0.05rem;margin-right:0.5rem;">Sequoia</span>
     <span style="font-size:1.7rem;">🌲</span>
   </h1>
 

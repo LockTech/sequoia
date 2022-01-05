@@ -12,10 +12,10 @@ import {
   renameSync,
   rewriteFileSync,
   writeFileSync,
-} from "../util/fs";
-import { Renderer } from "../util/renderer";
+} from "../util/fs.js";
+import { Renderer } from "../util/renderer.js";
 
-import type { ArgsResponse } from "./args";
+import type { ArgsResponse } from "./args.js";
 
 /**
  * @module Gen

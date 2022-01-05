@@ -2,7 +2,7 @@ import { cwd } from "process";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
-import { RWDeps } from "./prompt";
+import { RWDeps } from "./prompt.js";
 
 /**
  * @module args

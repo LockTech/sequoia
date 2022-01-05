@@ -1,8 +1,8 @@
 import prompts from "prompts";
 
-import { colors } from "../util/colors";
+import { colors } from "../util/colors.js";
 
-import type { ArgsResponse } from "./args";
+import type { ArgsResponse } from "./args.js";
 
 /**
  * @module prompt

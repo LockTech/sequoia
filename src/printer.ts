@@ -1,6 +1,6 @@
 import center from "center-align";
 
-import { colors } from "./util/colors";
+import { colors } from "./util/colors.js";
 
 /**
  * @module Printer

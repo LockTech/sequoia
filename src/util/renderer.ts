@@ -1,10 +1,10 @@
 import type { ListrContext } from "listr2";
-import type { Task } from "listr2/dist/lib/task";
-import { DefaultRenderer } from "listr2/dist/renderer/default.renderer";
+import type { Task } from "listr2/dist/lib/task.js";
+import { DefaultRenderer } from "listr2/dist/renderer/default.renderer.js";
 import logUpdate from "log-update";
 
-import { colors } from "./colors";
-import { Glyphs, Spinner } from "./glyphs";
+import { colors } from "./colors.js";
+import { Glyphs, Spinner } from "./glyphs.js";
 
 /**
  * @module Renderer

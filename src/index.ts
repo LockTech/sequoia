@@ -1,13 +1,18 @@
 #!/usr/bin/env node
 
-import { printGenerator, printOutro, printPrompt, printTitle } from "./printer";
+import {
+  printGenerator,
+  printOutro,
+  printPrompt,
+  printTitle,
+} from "./printer.js";
 
-import { getArgs } from "./tasks/args";
-import { prompt } from "./tasks/prompt";
-import { generate } from "./tasks/gen";
-import type { GeneratorConfig } from "./tasks/gen";
+import { getArgs } from "./tasks/args.js";
+import { prompt } from "./tasks/prompt.js";
+import { generate } from "./tasks/gen.js";
+import type { GeneratorConfig } from "./tasks/gen.js";
 
-import { colors } from "./util/colors";
+import { colors } from "./util/colors.js";
 
 const main = async () => {
   const { dry, force, path, skipPrompts, ...args } = await getArgs({

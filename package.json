@@ -1,6 +1,6 @@
 {
   "name": "create-sequoia-pkg",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "External package generation script for RedwoodJS applications.",
   "repository": "https://github.com/locktech/sequoia",
   "license": "MIT",

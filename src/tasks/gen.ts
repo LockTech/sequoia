@@ -113,20 +113,28 @@ const reactLint = `"root": true,
     }`;
 
 export const generate = async (config: GeneratorConfig) => {
-  const skipper =
-    (cond = false) =>
-    () =>
-      config.dry || cond;
+  const skip = () => config.dry;
 
   return await new Listr(
     [
+      // Setup context
+      {
+        skip,
+        title: "Setting up context.",
+        task: (ctx) => {
+          ctx.buildArgs = `-f modern,cjs -o ./dist/index.js`;
+
+          ctx.src = resolve(__root, "template");
+          ctx.dest = resolve(config.path, config.name);
+        },
+      },
       // Copy Template
       {
-        skip: skipper(),
+        skip,
         title: "Copying and re-writing template.",
-        task: (ctx, task) => {
-          const src = (ctx.src = resolve(__root, "template"));
-          const dest = (ctx.dest = resolve(config.path, config.name));
+        task: (ctx) => {
+          const src = ctx.src;
+          const dest = ctx.dest;
 
           ensureDirSync(dest);
 
@@ -162,52 +170,50 @@ export const generate = async (config: GeneratorConfig) => {
               "src/index.ts",
               "src/index.js"
             );
+
+            ctx.buildArgs = `${ctx.buildArgs} -i ./src/index.js`;
+          } else {
+            ctx.buildArgs = `${ctx.buildArgs} -i ./src/index.ts`;
           }
         },
       },
       // Dev Deps
       {
-        skip: skipper(),
+        skip,
         title: "Setting up build and formatting tools.",
         task: async (ctx) => await ctx.exec(`yarn add -D ${devDeps.join(" ")}`),
       },
       // RW Deps
       {
-        skip: skipper(config.rwDeps.length === 0),
+        enabled: config.rwDeps.length !== 0,
+        skip,
         title: "Installing selected RedwoodJS packages.",
         task: async (ctx) =>
           await ctx.exec(`yarn add ${config.rwDeps.join(" ")}`),
       },
       // React
       {
-        skip: skipper(!config.react),
+        enabled: config.react,
+        skip,
         title: "Adding support for React.",
-        task: async (ctx, task) => {
+        task: async (ctx) => {
           await ctx.exec("yarn add -P react@>=17");
 
           await ctx.exec(`yarn add -D react@^17.0.2 react-dom@^17.0.2`);
 
           rewriteFileSync(
             resolve(ctx.dest, "package.json"),
-            "-o ./dist",
-            "-o ./dist --jsx React.createElement"
-          );
-
-          rewriteFileSync(
-            resolve(ctx.dest, "package.json"),
             '"root": true',
             reactLint
           );
-          rewriteFileSync(
-            resolve(ctx.dest, "package.json"),
-            "--jsx React.createElement",
-            "--jsx React.createElement --globals React"
-          );
+
+          ctx.buildArgs = `${ctx.buildArgs} --jsx React.createElement --globals React`;
         },
       },
       // Storybook
       {
-        skip: skipper(!config.react || !config.storybook),
+        enabled: config.react && config.storybook,
+        skip,
         title: "Setting up support for Storybook.",
         task: async (ctx) => {
           await ctx.exec("npx sb init --type react");
@@ -235,10 +241,23 @@ export const generate = async (config: GeneratorConfig) => {
       },
       // CLI - To be implemented
       // {
-      //   skip: skipper(!config.cli),
+      //   enabled: config.cli,
+      //   skip,
       //   title: "Adding interactive CLI tooling.",
       //   task: () => {},
       // },
+      // This task should always be ran last
+      {
+        skip,
+        title: "Generating build-command arguments.",
+        task: (ctx) => {
+          rewriteFileSync(
+            resolve(ctx.dest, "package.json"),
+            '"build": "microbundle"',
+            `"build": "microbundle ${ctx.buildArgs}"`
+          );
+        },
+      },
     ],
     { renderer: Renderer, rendererOptions: { showTimer: true } }
   ).run();

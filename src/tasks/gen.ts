@@ -106,6 +106,13 @@ jobs:
           folder: storybook-static
           target-folder: docs
 `;
+const sbMain = `"framework": "@storybook/react",
+  webpackFinal: (config) => {
+    config.plugins.push(
+      new require('webpack').ProvidePlugin({ React: 'react' })
+    )
+    return config
+  }`;
 
 const reactLint = `"root": true,
     "globals": {
@@ -234,6 +241,11 @@ export const generate = async (config: GeneratorConfig) => {
             resolve(ctx.dest, ".storybook/main.js"),
             "/src/",
             "/stories/"
+          );
+          rewriteFileSync(
+            resolve(ctx.dest, ".storybook/main.js"),
+            '"framework": "@storybook/react"',
+            sbMain
           );
 
           ensureFileSync(resolve(ctx.dest, "stories/.gitkeep"));

@@ -1,0 +1,37 @@
+{
+  "name": "create-sequoia-pkg",
+  "version": "1.0.0",
+  "description": "External package generation script for RedwoodJS applications.",
+  "repository": "https://github.com/locktech/sequoia",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "watch": "nodemon -x yarn build -w ./src -e js,jsx,ts,tsx",
+    "se": "node --experimental-specifier-resolution=node ./dist/index.js"
+  },
+  "bin": "./dist/index.js",
+  "files": [
+    "./dist",
+    "./template"
+  ],
+  "dependencies": {
+    "center-align": "^1.0.1",
+    "chalk": "^5.0.0",
+    "execa": "^6.0.0",
+    "fs-extra": "^10.0.0",
+    "listr2": "^3.13.5",
+    "prompts": "^2.4.2",
+    "yargs": "^17.3.1"
+  },
+  "devDependencies": {
+    "@types/center-align": "^1.0.0",
+    "@types/fs-extra": "^9.0.13",
+    "@types/node": "^17.0.5",
+    "@types/prompts": "^2.0.14",
+    "@types/yargs": "^17.0.8",
+    "nodemon": "^2.0.15",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.4"
+  }
+}

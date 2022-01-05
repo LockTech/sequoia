@@ -1,0 +1,49 @@
+name: Publish and Release
+
+on:
+  push:
+    paths:
+      - package.json
+    branches:
+      - main
+
+jobs:
+  publish-and-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node v14 📦
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: Install Dependencies 📥
+        run: yarn install
+
+      - name: Build 🏗️
+        run: yarn build
+
+        # https://github.com/JS-DevTools/npm-publish
+      - name: Publish 🚀
+        id: publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          access: public
+          token: ${{ secrets.NPM_TOKEN }}
+
+      # https://github.com/softprops/action-gh-release
+      - if: steps.publish.outputs.type != 'none'
+        name: Release 🎣
+        uses: softprops/action-gh-release@v0.1.14
+        with:
+          name: v${{ steps.publish.outputs.version }}
+          tag_name: v${{ steps.publish.outputs.version }}
+          draft: false
+          prerelease: true
+          generate_release_notes: true

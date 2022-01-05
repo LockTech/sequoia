@@ -3,7 +3,7 @@ import { Listr } from "listr2";
 import { resolve } from "path";
 
 import {
-  __dirname,
+  __root,
   appendFileSync,
   copySync,
   ensureDirSync,
@@ -124,7 +124,7 @@ export const generate = async (config: GeneratorConfig) => {
         skip: skipper(),
         title: "Copying and re-writing template.",
         task: (ctx, task) => {
-          const src = (ctx.src = resolve(__dirname, "../../template"));
+          const src = (ctx.src = resolve(__root, "template"));
           const dest = (ctx.dest = resolve(config.path, config.name));
 
           ensureDirSync(dest);

@@ -1,4 +1,4 @@
-import { dirname } from "path";
+import { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
 
 /**
@@ -35,7 +35,7 @@ export {
 };
 
 export const __filename = fileURLToPath(import.meta.url);
-export const __dirname = dirname(__filename);
+export const __root = resolve(dirname(__filename), "../../");
 
 export const rewriteFileSync = (
   path: string,

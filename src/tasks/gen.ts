@@ -217,6 +217,7 @@ export const generate = async (config: GeneratorConfig) => {
 
           appendFileSync(resolve(ctx.dest, ".gitignore"), sbGitignore);
 
+          ensureFileSync(resolve(ctx.dest, ".github/workflows/storybook.yml"));
           writeFileSync(
             resolve(ctx.dest, ".github/workflows/storybook.yml"),
             sbWorkflow

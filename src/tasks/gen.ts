@@ -108,8 +108,9 @@ jobs:
 `;
 const sbMain = `"framework": "@storybook/react",
   webpackFinal: (config) => {
+    const webpack = require('webpack')
     config.plugins.push(
-      new require('webpack').ProvidePlugin({ React: 'react' })
+      new webpack.ProvidePlugin({ React: 'react' })
     )
     return config
   }`;

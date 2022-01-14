@@ -47,7 +47,7 @@ It provides a dynamic, interactive prompt which configures the generated package
 - Easily depend on and extend [RedwoodJS' functionality](https://github.com/redwoodjs/redwood/tree/main/packages).
 - Simple setup to support [React](https://reactjs.org/) and [Storybook](https://storybook.js.org/).
 - [GitHub Actions](https://docs.github.com/en/actions) to:
-  - Publish your package to NPM and create a realease on GitHub.
+  - Publish your package to NPM and create a release on GitHub.
   - Make quality assurances when PRs are opened against the `main` branch.
   - [Deploy Storybook](https://storybook.js.org/docs/react/sharing/publish-storybook) to [GitHub Pages](https://docs.github.com/en/pages) whenever updates to the `main` branch occur.
 

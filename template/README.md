@@ -2,7 +2,7 @@
 
 [Sequoia](https://github.com/locktech/sequoia) has successfully setup your [RedwoodJS](https://redwoodjs.com) NPM-package! 🎉
 
-Depending on how it was setup, this package comes [jam-packed with goodies](https://github.com/locktech/sequoia#features). These were choosen to expidite building external, re-usable libraries for RedwoodJS applications - while providing a developer experience similar to the application's.
+Depending on how it was setup, this package comes [jam-packed with goodies](https://github.com/locktech/sequoia#features). These were chosen to expedite building external, re-usable libraries for RedwoodJS applications - while providing a developer experience similar to the application's.
 
 ## Commands
 

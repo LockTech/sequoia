@@ -68,6 +68,8 @@ Options:
   --dry          Run this script, skipping generation.                                      [boolean]
   --force        Overwrite the output directory if it already exists.                       [boolean]
   --skipPrompts  Completely skip prompts, passing along only arguments to the generator.    [boolean]
+  --lang         The language to generate your package in.                                   [string]
+                                                                                [choices: "ts", "js"]
   --rwDeps       RedwoodJS packages to include.                                               [array]
                                                  [choices: "@redwoodjs/api", "@redwoodjs/forms", ...]
   --react        Include React as a dependency.                                             [boolean]
@@ -75,7 +77,7 @@ Options:
   --cli          Add dependencies for building interactive CLI tools.                       [boolean]
 
 Examples:
-  sequoia newlib -  Creats a new package in the directory `cwd()/newlib`.
+  yarn create sequoia-pkg newlib -  Creats a new package in the directory `cwd()/newlib`.
 ```
 
 ## Contributing

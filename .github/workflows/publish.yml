@@ -36,15 +36,18 @@ jobs:
         uses: JS-DevTools/npm-publish@v1
         with:
           access: public
+          check-version: false
+          dry: true
+          package: ./package.json
           token: ${{ secrets.NPM_TOKEN }}
 
       # https://github.com/softprops/action-gh-release
-      - if: steps.publish.outputs.type != 'none'
-        name: Release 🎣
-        uses: softprops/action-gh-release@v0.1.14
-        with:
-          name: v${{ steps.publish.outputs.version }}
-          tag_name: v${{ steps.publish.outputs.version }}
-          draft: false
-          prerelease: false
-          generate_release_notes: true
+      # - if: steps.publish.outputs.type != 'none'
+      #   name: Release 🎣
+      #   uses: softprops/action-gh-release@v0.1.14
+      #   with:
+      #     name: v${{ steps.publish.outputs.version }}
+      #     tag_name: v${{ steps.publish.outputs.version }}
+      #     draft: false
+      #     prerelease: false
+      #     generate_release_notes: true

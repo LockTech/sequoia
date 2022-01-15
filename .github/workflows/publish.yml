@@ -37,7 +37,7 @@ jobs:
         with:
           access: public
           check-version: false
-          dry: true
+          dry-run: true
           package: ./package.json
           token: ${{ secrets.NPM_TOKEN }}
 

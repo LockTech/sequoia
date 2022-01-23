@@ -43,6 +43,7 @@ It provides a dynamic, interactive prompt which configures the generated package
 - Command-line argument and prompt driven configuration of generated package.
 - Support for JavaScript or TypeScript source-code generation.
 - Code compilation and bundling facilitated by [Microbundle](https://github.com/developit/microbundle).
+  - Build-process is completely exposed, making it straight-forward to swap out different technologies.
 - Built-in support for [linting](https://redwoodjs.com/docs/cli-commands.html#lint) and [testing](https://redwoodjs.com/docs/testing#introduction-to-testing), using the same configuration as RedwoodJS.
 - Easily depend on and extend [RedwoodJS' functionality](https://github.com/redwoodjs/redwood/tree/main/packages).
 - Simple setup to support [React](https://reactjs.org/) and [Storybook](https://storybook.js.org/).
